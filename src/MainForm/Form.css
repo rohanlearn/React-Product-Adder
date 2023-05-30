@@ -1,0 +1,13 @@
+.form{
+    margin: 1em;
+    
+
+}
+
+.form label
+{
+    margin:0 5px 0 3px;
+}
+.form #submit{
+    margin-left: 2em;
+}

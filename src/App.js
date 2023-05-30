@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import Form from './MainForm/Form';
+import { useState } from 'react';
 import './App.css';
-
+import Item from './Products/Products';
+import React from 'react';
+import Products from './Products/Products';
 function App() {
+  const [objs,setObjs] = useState([])
+
+
+  const fetchItemfromForm=(obj)=>{
+    setObjs((prev)=>{
+      if(prev.length>0){
+        return [...prev,obj]
+
+      }else{
+        return [obj]
+      }
+      
+    })
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+    
+    <Form getItem={fetchItemfromForm}/>
+
+    <Products items={objs}/>
+    </React.Fragment>
+  )
+  
 }
 
 export default App;
